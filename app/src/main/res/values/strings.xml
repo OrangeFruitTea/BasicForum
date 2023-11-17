@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BasicForum</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_sign_up">Sign Up</string>
+    <string name="app_title_first">Chatter</string>
+    <string name="app_title_second">Flow</string>
+    <string name="textView_test">test</string>
+    <string name="textView_colon">: </string>
+    <string name="textView_login_username">Username</string>
+    <string name="textView_login_pwd">Password</string>
+    <string name="btn_choose_login">LOGIN</string>
+    <string name="btn_choose_sign_up">SIGN UP</string>
+</resources>

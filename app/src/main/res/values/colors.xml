@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="app_text_title_first">#FFFFFF</color>
+    <color name="app_bg_title_first">#2E9DFD</color>
+    <color name="app_text_title_second">#2E9DFD</color>
+    <color name="app_bg_title_second">#FFFFFF</color>
+    <color name="app_btnText_selected">#FFFFFF</color>
+    <color name="app_btnText_notSelected">#8DFFFFFF</color>
+
+    <color name="app_text_night">#AEC9EB</color>
+    <color name="app_test1">#AEC9EB</color>
+    <color name="app_test2">#739BC7</color>
+    <color name="app_layout">#546C85</color>
+    <color name="app_bg_night">#384450</color>
+</resources>
