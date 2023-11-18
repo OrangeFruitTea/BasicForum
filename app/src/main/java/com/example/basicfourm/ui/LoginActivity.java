@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnSignUp;
     private LinearLayout LayoutLogin;
     private LinearLayout LayoutSignUp;
-    private int shortAnimationDuration;
+    private int shortAnimationDuration = 1;
     private boolean isLogin;
 
 
