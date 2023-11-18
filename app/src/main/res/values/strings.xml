@@ -6,6 +6,8 @@
     <string name="app_title_second">Flow</string>
     <string name="textView_test">test</string>
     <string name="textView_colon">: </string>
+    <string name="textView_login_welcome">Welcome back</string>
+    <string name="textView_login_welcome_hint">Sign in with your account</string>
     <string name="textView_login_username">Username</string>
     <string name="textView_login_pwd">Password</string>
     <string name="btn_choose_login">LOGIN</string>
