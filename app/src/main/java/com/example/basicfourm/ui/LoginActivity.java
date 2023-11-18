@@ -1,5 +1,7 @@
 package com.example.basicfourm.ui;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnSignUp;
     private LinearLayout LayoutLogin;
     private LinearLayout LayoutSignUp;
+    private int shortAnimationDuration;
     private boolean isLogin;
 
 
@@ -52,15 +55,17 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginLayout() {
         setBtnSelected(btnSelectLogin);
         setBtnUnSelected(btnSelectSignUp);
-        LayoutSignUp.setVisibility(View.GONE);
-        LayoutLogin.setVisibility(View.VISIBLE);
+        crossfade(LayoutLogin, LayoutSignUp);
+        //LayoutSignUp.setVisibility(View.GONE);
+        //LayoutLogin.setVisibility(View.VISIBLE);
     }
 
     private void showSignUpLayout() {
         setBtnSelected(btnSelectSignUp);
         setBtnUnSelected(btnSelectLogin);
-        LayoutSignUp.setVisibility(View.VISIBLE);
-        LayoutLogin.setVisibility(View.GONE);
+        crossfade(LayoutSignUp, LayoutLogin);
+        //LayoutSignUp.setVisibility(View.VISIBLE);
+        //LayoutLogin.setVisibility(View.GONE);
     }
 
     public void OnClick(View view) {
@@ -82,6 +87,10 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(LoginActivity.this, "Login Clicked!", Toast.LENGTH_SHORT).show();
     }
 
+    private void btnClick_sign_up(View view) {
+        Toast.makeText(LoginActivity.this, "Sign up Clicked!", Toast.LENGTH_SHORT).show();
+    }
+
     public void btnClick_select(View view) {
         if (isLogin) {
             showSignUpLayout();
@@ -90,5 +99,26 @@ public class LoginActivity extends AppCompatActivity {
             showLoginLayout();
             isLogin = true;
         }
+    }
+
+    private void crossfade(View contentView, View loadingView) {
+        contentView.setAlpha(0f);
+        contentView.setVisibility(View.VISIBLE);
+
+        contentView.animate()
+                .alpha(1f)
+                .setDuration(shortAnimationDuration)
+                .setListener(null);
+
+        loadingView.animate()
+                .alpha(0f)
+                .setDuration(shortAnimationDuration)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        loadingView.setVisibility(View.GONE);
+                    }
+                });
+
     }
 }

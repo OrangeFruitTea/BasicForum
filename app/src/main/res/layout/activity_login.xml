@@ -156,7 +156,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/textView_login_welcome"
                         android:textColor="@color/black"
-                        android:textSize="30dp" />
+                        android:textSize="30sp" />
 
                     <TextView
                         android:id="@+id/textView_welcome_minus"
