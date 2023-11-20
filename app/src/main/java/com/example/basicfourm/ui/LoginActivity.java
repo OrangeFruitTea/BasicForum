@@ -3,6 +3,7 @@ package com.example.basicfourm.ui;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -19,6 +20,9 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnSignUp;
     private LinearLayout LayoutLogin;
     private LinearLayout LayoutSignUp;
+    private EditText SignInputUserName;
+    private EditText SignInputUserPassword;
+
     private boolean isLogin;
 
 
@@ -84,7 +88,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void btnClick_sign_up(View view) {
+
+        String UserName;
+        String UserPassword;
+
         Toast.makeText(LoginActivity.this, "Sign up Clicked!", Toast.LENGTH_SHORT).show();
+
+        SignInputUserName=findViewById(R.id.sign_input_username);
+        SignInputUserPassword=findViewById(R.id.sign_input_password);
+
+        UserName=SignInputUserName.getText().toString().trim();
+        UserPassword=SignInputUserPassword.getText().toString().trim();
     }
 
     public void btnClick_select(View view) {
