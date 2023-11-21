@@ -9,8 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin_bottom="5dp">
+        android:layout_height="wrap_content">
 
         <ImageButton
             android:id="@+id/btn_showPostTitle"
