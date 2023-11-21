@@ -14,6 +14,8 @@ import com.example.basicfourm.R;
 
 import org.litepal.LitePal;
 
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
 
     private Button btnSelectLogin;
@@ -24,7 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     private LinearLayout LayoutSignUp;
     private EditText SignInputUserName;
     private EditText SignInputUserPassword;
-
+    private EditText LoginInputUserName;
+    private EditText LoginInputUserPassword;
     private boolean isLogin;
 
 
@@ -40,6 +43,10 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btn_sign_up);
         LayoutLogin = findViewById(R.id.layout_login);
         LayoutSignUp= findViewById(R.id.layout_sign_up);
+        SignInputUserName=findViewById(R.id.sign_input_username);
+        SignInputUserPassword=findViewById(R.id.sign_input_password);
+        LoginInputUserName=findViewById(R.id.login_input_username);
+        LoginInputUserPassword=findViewById(R.id.login_input_password);
         isLogin = true;
         showLoginLayout();
     }
@@ -86,7 +93,18 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void btnClick_login(View view) {
-        Toast.makeText(LoginActivity.this, "Login Clicked!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(LoginActivity.this, "Login Clicked!", Toast.LENGTH_SHORT).show();
+        String UserName=LoginInputUserName.getText().toString().trim();
+        String UserPwd=LoginInputUserPassword.getText().toString().trim();
+        List<Users> list= LitePal.where(" userName = ? and userPwd = ?",UserName,UserPwd).find(Users.class);
+        if(list.size()>0)
+        {
+            Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            Toast.makeText(LoginActivity.this, "登录失败,用户名或密码错误", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void btnClick_sign_up(View view) {
@@ -97,16 +115,14 @@ public class LoginActivity extends AppCompatActivity {
             String UserPwd;
             long id=System.currentTimeMillis();
 
-            SignInputUserName=findViewById(R.id.sign_input_username);
-            SignInputUserPassword=findViewById(R.id.sign_input_password);
-
             UserName=SignInputUserName.getText().toString().trim();
             UserPwd=SignInputUserPassword.getText().toString().trim();
 
-            boolean isExist =LitePal.isExist(Users.class, "userName = ? and userPwd = ?", UserName, UserPwd);
+            boolean isExist =LitePal.isExist(Users.class, "userName = ?", UserName);
             if(isExist)
             {
                 Toast.makeText(LoginActivity.this, "注册失败，用户名已被占用", Toast.LENGTH_SHORT).show();
+                return;
             }
             Users user = new Users(UserName,UserPwd,id);
             boolean flag = user.save();
@@ -122,8 +138,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
     public boolean isUserNameAndPwdValid() {
-        SignInputUserName=findViewById(R.id.sign_input_username);
-        SignInputUserPassword=findViewById(R.id.sign_input_password);
         String userName= SignInputUserName.getText().toString().trim();    //获取当前输入的用户名和密码信息
         String userPwd= SignInputUserPassword.getText().toString().trim();
         if (userName.equals("")) { //用户名为空
