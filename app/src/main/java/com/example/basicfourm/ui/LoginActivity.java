@@ -90,29 +90,47 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void btnClick_sign_up(View view) {
+        //Toast.makeText(LoginActivity.this, "Sign up Clicked!", Toast.LENGTH_SHORT).show();
+        if(isUserNameAndPwdValid())
+        {
+            String UserName;
+            String UserPwd;
+            long id=System.currentTimeMillis();
 
-        String UserName;
-        String UserPwd;
-        long id = System.currentTimeMillis();
-        Toast.makeText(LoginActivity.this, "Sign up Clicked!", Toast.LENGTH_SHORT).show();
+            SignInputUserName=findViewById(R.id.sign_input_username);
+            SignInputUserPassword=findViewById(R.id.sign_input_password);
 
-        SignInputUserName=findViewById(R.id.sign_input_username);
-        SignInputUserPassword=findViewById(R.id.sign_input_password);
+            UserName=SignInputUserName.getText().toString().trim();
+            UserPwd=SignInputUserPassword.getText().toString().trim();
 
-        UserName=SignInputUserName.getText().toString().trim();
-        UserPwd=SignInputUserPassword.getText().toString().trim();
-        boolean isExist =LitePal.isExist(Users.class, "userName = ? and userPwd = ?", UserName, UserPwd);
+            boolean isExist =LitePal.isExist(Users.class, "userName = ? and userPwd = ?", UserName, UserPwd);
+            if(isExist)
+            {
+                Toast.makeText(LoginActivity.this, "注册失败，用户名已被占用", Toast.LENGTH_SHORT).show();
+            }
+            Users user = new Users(UserName,UserPwd,id);
+            boolean flag = user.save();
+            if(flag)
+            {
+                Toast.makeText(LoginActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                showLoginLayout();
+            }
+            else
+            {
+                Toast.makeText(LoginActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
     public boolean isUserNameAndPwdValid() {
-        String userName = SignInputUserName.getText().toString().trim();    //获取当前输入的用户名和密码信息
-        String userPwd = SignInputUserPassword.getText().toString().trim();
+        SignInputUserName=findViewById(R.id.sign_input_username);
+        SignInputUserPassword=findViewById(R.id.sign_input_password);
+        String userName= SignInputUserName.getText().toString().trim();    //获取当前输入的用户名和密码信息
+        String userPwd= SignInputUserPassword.getText().toString().trim();
         if (userName.equals("")) { //用户名为空
-            Toast.makeText(this, "用户名不能为空",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "用户名不能为空", Toast.LENGTH_SHORT).show();
             return false;
         } else if (userPwd.equals("")) {
-            Toast.makeText(this, "密码不能为空",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

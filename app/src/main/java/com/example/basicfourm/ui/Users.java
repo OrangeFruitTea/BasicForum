@@ -3,7 +3,7 @@ package com.example.basicfourm.ui;
 import org.litepal.crud.LitePalSupport;
 
 public class Users extends LitePalSupport {
-    private int id;
+    private long id;
     private String userName;
     private String userPwd;
 
@@ -11,7 +11,7 @@ public class Users extends LitePalSupport {
         this.id = id;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -23,11 +23,17 @@ public class Users extends LitePalSupport {
         return userName;
     }
 
-    public void setUserPwd(String userPhone) {
-        this.userPwd = userPhone;
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd;
     }
 
     public String getUserPwd() {
         return userPwd;
+    }
+    public Users(String UserName,String UserPwd,long id)
+    {
+        this.userName= UserName;
+        this.userPwd=UserPwd;
+        this.id=id;
     }
 }
