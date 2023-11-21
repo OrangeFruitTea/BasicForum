@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.basicfourm.R;
 
+import org.litepal.LitePal;
+
 public class LoginActivity extends AppCompatActivity {
 
     private Button btnSelectLogin;
@@ -90,17 +92,31 @@ public class LoginActivity extends AppCompatActivity {
     private void btnClick_sign_up(View view) {
 
         String UserName;
-        String UserPassword;
-
+        String UserPwd;
+        long id = System.currentTimeMillis();
         Toast.makeText(LoginActivity.this, "Sign up Clicked!", Toast.LENGTH_SHORT).show();
 
         SignInputUserName=findViewById(R.id.sign_input_username);
         SignInputUserPassword=findViewById(R.id.sign_input_password);
 
         UserName=SignInputUserName.getText().toString().trim();
-        UserPassword=SignInputUserPassword.getText().toString().trim();
+        UserPwd=SignInputUserPassword.getText().toString().trim();
+        boolean isExist =LitePal.isExist(Users.class, "userName = ? and userPwd = ?", UserName, UserPwd);
     }
-
+    public boolean isUserNameAndPwdValid() {
+        String userName = SignInputUserName.getText().toString().trim();    //获取当前输入的用户名和密码信息
+        String userPwd = SignInputUserPassword.getText().toString().trim();
+        if (userName.equals("")) { //用户名为空
+            Toast.makeText(this, "用户名不能为空",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (userPwd.equals("")) {
+            Toast.makeText(this, "密码不能为空",
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
     public void btnClick_select(View view) {
         if (isLogin) {
             showSignUpLayout();
