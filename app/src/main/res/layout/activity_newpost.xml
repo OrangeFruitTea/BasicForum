@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageButton
-            android:id="@+id/btn_showPostTitle"
+            android:id="@+id/btn_sendPost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -51,7 +51,9 @@
             android:layout_marginEnd="20dp"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/textView_newpost_title"
+            android:textColor="@color/app_newpost_content"
+            android:textColorHint="@color/app_newpost_hint"
+            android:hint="@string/textView_newpost_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -65,11 +67,28 @@
             android:layout_marginEnd="50dp"
             android:ems="10"
             android:inputType="text"
-            android:text="@string/textView_newpost_subTitle"
+            android:textColor="@color/app_newpost_content"
+            android:textColorHint="@color/app_newpost_hint"
+            android:hint="@string/textView_newpost_subTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/newpost_input_title" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@null"
+        android:gravity="top"
+        android:hint="@string/textView_newpost_articleHint"
+        android:maxHeight="100dp"
+        android:maxLength="120"
+        android:minHeight="50dp"
+        android:textColor="@color/app_newpost_content"
+        android:textColorHint="@color/app_newpost_hint"
+        android:textSize="14sp"
+        android:inputType="text"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_article"
