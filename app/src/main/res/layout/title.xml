@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-
+    <!--应用Logo布局，使用include可直接使用-->
     <Space
         android:layout_width="match_parent"
         android:layout_height="30dp" />
