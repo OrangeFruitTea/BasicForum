@@ -53,6 +53,9 @@ public class PostList extends LitePalSupport
 
     public String getObjectID(){return objectID;}
 
+    public  int getFloor(){return floor;}
+    public int getFloorForComment(){return floor++;}
+
     public PostList(String title,String content,String publisher,String time,String objectID)
     {
         this.title=title;
