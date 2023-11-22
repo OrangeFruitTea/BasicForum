@@ -94,22 +94,36 @@ public class LoginActivity extends AppCompatActivity {
 
     private void btnClick_login(View view) {
         //Toast.makeText(LoginActivity.this, "Login Clicked!", Toast.LENGTH_SHORT).show();
-        String UserName=LoginInputUserName.getText().toString().trim();
-        String UserPwd=LoginInputUserPassword.getText().toString().trim();
-        List<Users> list= LitePal.where(" userName = ? and userPwd = ?",UserName,UserPwd).find(Users.class);
-        if(list.size()>0)
+        if(isLoginUserNameAndPwdValid())
         {
-            Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(LoginActivity.this, "登录失败,用户名或密码错误", Toast.LENGTH_SHORT).show();
+            String UserName=LoginInputUserName.getText().toString().trim();
+            String UserPwd=LoginInputUserPassword.getText().toString().trim();
+            List<Users> list= LitePal.where(" userName = ? and userPwd = ?",UserName,UserPwd).find(Users.class);
+            if(list.size()>0)
+            {
+                Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                Toast.makeText(LoginActivity.this, "登录失败,用户名或密码错误", Toast.LENGTH_SHORT).show();
+            }
         }
     }
-
+    public boolean isLoginUserNameAndPwdValid() {
+        String userName= LoginInputUserName.getText().toString().trim();    //获取当前输入的用户名和密码信息
+        String userPwd= LoginInputUserPassword.getText().toString().trim();
+        if (userName.equals("")) { //用户名为空
+            Toast.makeText(LoginActivity.this, "用户名不能为空", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (userPwd.equals("")) {
+            Toast.makeText(LoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
     private void btnClick_sign_up(View view) {
         //Toast.makeText(LoginActivity.this, "Sign up Clicked!", Toast.LENGTH_SHORT).show();
-        if(isUserNameAndPwdValid())
+        if(isSignUserNameAndPwdValid())
         {
             String UserName;
             String UserPwd;
@@ -137,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-    public boolean isUserNameAndPwdValid() {
+    public boolean isSignUserNameAndPwdValid() {
         String userName= SignInputUserName.getText().toString().trim();    //获取当前输入的用户名和密码信息
         String userPwd= SignInputUserPassword.getText().toString().trim();
         if (userName.equals("")) { //用户名为空
