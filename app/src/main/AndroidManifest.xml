@@ -18,14 +18,26 @@
             android:exported="true">
         </activity>
 
-        <!--登陆界面activity-->
-        <activity android:name=".ui.LoginActivity"
+        <!--debug切换布局用界面-->
+        <activity android:name=".ui.debugActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!--登陆界面-->
+        <activity android:name=".ui.LoginActivity"
+            android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN"/>-->
+<!--                <category android:name="android.intent.category.LAUNCHER"/>-->
+<!--            </intent-filter>-->
+        </activity>
+
+        <!--新建帖子界面-->
+        <activity android:name=".ui.NewPostActivity"></activity>
     </application>
 
 </manifest>
