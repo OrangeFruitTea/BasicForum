@@ -22,17 +22,20 @@ public class debugActivity extends AppCompatActivity {
         setContentView(com.example.basicfourm.R.layout.activity_debug);
         btnToLogin = findViewById(R.id.btn_to_login);
         btnToNewPost = findViewById(R.id.btn_to_newpost);
-    }
 
-    public void OnClick(View view) {
-        int id = view.getId();
-        if (id == btnToLogin.getId()) {
-
-        } else if (id == btnToNewPost.getId()) {
-
-        } else {
-            Toast.makeText(debugActivity.this, "Btn Clicked!", Toast.LENGTH_SHORT).show();
-        }
+        //监听按钮OnClick事件
+        btnToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToLogin(view);
+            }
+        });
+        btnToNewPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToNewPost(view);
+            }
+        });
     }
 
     private void ToLogin(View view) {
@@ -41,7 +44,7 @@ public class debugActivity extends AppCompatActivity {
     }
 
     private void ToNewPost(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, NewPostActivity.class);
         startActivity(intent);
     }
 
