@@ -7,9 +7,8 @@ public class ReplyList extends LitePalSupport
     //回复内容，回复者，所属贴子ID,时间，楼层，标题（只在一楼显示）
     private  String reply;
     private  String replyer;
-    private  String belongTo;
     private  String timeInReply;
-    private  String floor;
+    private  int floor;
     private  String title;
 
     public void setReply(String reply){
@@ -28,19 +27,11 @@ public class ReplyList extends LitePalSupport
         return replyer;
     }
 
-    public void setBelongTo(String belongTo){
-        this.belongTo=belongTo;
-    }
-
-    public String getBelongto(){
-        return belongTo;
-    }
-
-    public void setFloor(String floor){
+    public void setFloor(int floor){
         this.floor=floor;
     }
 
-    public String getFloor(){
+    public int getFloor(){
         return floor;
     }
 
@@ -53,4 +44,14 @@ public class ReplyList extends LitePalSupport
     }
 
     public String getTitle(){return title;}
+
+    public ReplyList(String reply,String replyer,String timeInReply,int floor,String title)
+    {
+        this.reply=reply;
+        this.replyer=replyer;
+        this.timeInReply=timeInReply;
+        this.floor=floor;
+        this.title=title;
+    }
+
 }
