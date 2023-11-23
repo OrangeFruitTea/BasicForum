@@ -10,6 +10,7 @@ public class ReplyList extends LitePalSupport
     private  String timeInReply;
     private  int floor;
     private  String title;
+    private  PostList belongToPost;
 
     public void setReply(String reply){
         this.reply=reply;
@@ -45,13 +46,18 @@ public class ReplyList extends LitePalSupport
 
     public String getTitle(){return title;}
 
-    public ReplyList(String reply,Users replyer,String timeInReply,int floor,String title)
+    public void setBelongToPost(PostList NewPost){this.belongToPost=NewPost;}
+
+    public PostList getBelongToPost(){return this.belongToPost;}
+
+    public ReplyList(String reply,Users replyer,String timeInReply,int floor,String title,PostList belongToPost)
     {
         this.reply=reply;
         this.replyer=replyer;
         this.timeInReply=timeInReply;
         this.floor=floor;
         this.title=title;
+        this.belongToPost=belongToPost;
     }
 
 }
