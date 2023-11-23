@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_bg_title_first"
+        android:elevation="5dp"
+        android:minHeight="?attr/actionBarSize"
+        app:title="New Post"
+        app:titleTextColor="@color/app_text_title_first"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
@@ -78,22 +88,20 @@
     <EditText
         android:id="@+id/newpost_input_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
         android:background="@null"
+        android:enabled="true"
         android:gravity="top"
         android:hint="@string/textView_newpost_articleHint"
         android:maxHeight="100dp"
-        android:maxLength="120"
-        android:minHeight="50dp"
+        android:minHeight="60dp"
         android:textColor="@color/app_newpost_content"
         android:textColorHint="@color/app_newpost_hint"
-        android:textSize="14sp"
-        android:inputType="text"/>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_article"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
+        android:textSize="19sp"
+        android:inputType="textMultiLine"
+        android:minLines="8"
+        android:maxLines="50"
+        android:scrollbars="vertical"/>
 
 </LinearLayout>
