@@ -8,6 +8,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.basicfourm.R;
@@ -67,6 +68,7 @@ public class NewPostActivity extends AppCompatActivity {
                 //Toast.makeText(NewPostActivity.this, "2", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
     public boolean isPostValid() {
         String title = PostInputTitle.getText().toString().trim();
