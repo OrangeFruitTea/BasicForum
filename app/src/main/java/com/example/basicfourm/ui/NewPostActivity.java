@@ -1,6 +1,8 @@
 package com.example.basicfourm.ui;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +21,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class NewPostActivity extends AppCompatActivity {
+
+    private Toolbar header;
     private Button btnSendPost;
     private Button btnReturn;
     private EditText PostInputTitle;
@@ -34,6 +38,7 @@ public class NewPostActivity extends AppCompatActivity {
         PostInputContent = findViewById(R.id.newpost_input_content);
         PostInputTitle = findViewById(R.id.newpost_input_title);
         PostInputSubTitle = findViewById(R.id.newpost_input_subTitle);
+
 
         //设置按钮监听事件
         btnSendPost.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +75,14 @@ public class NewPostActivity extends AppCompatActivity {
         });
 
     }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        if (item.getItemId() == R.id.btn_send_post) {
+//
+//        }
+//    }
+
     public boolean isPostValid() {
         String title = PostInputTitle.getText().toString().trim();
         if(title.equals(""))

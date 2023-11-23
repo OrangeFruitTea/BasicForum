@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppThemeDemo" parent="Theme.AppCompat.Light.NoActionBar">
+<!--        应用的主要色调, Toolbar导航栏的底色-->
+        <item name="colorPrimary">@color/app_bg_title_first</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/black</item>
+<!--        状态栏与导航栏相关-->
+<!--        状态栏颜色-->
+        <item name="android:statusBarColor">#00000000</item>
+
+<!--        控件相关-->
+        <item name="textAllCaps">true</item>
+    </style>
+</resources>
