@@ -6,7 +6,7 @@ public class ReplyList extends LitePalSupport
 {
     //回复内容，回复者，所属贴子ID,时间，楼层，标题（只在一楼显示）
     private  String reply;
-    private  String replyer;
+    private  Users replyer;
     private  String timeInReply;
     private  int floor;
     private  String title;
@@ -19,11 +19,11 @@ public class ReplyList extends LitePalSupport
         return reply;
     }
 
-    public void setReplyer(String replyer){
+    public void setReplyer(Users replyer){
         this.replyer=replyer;
     }
 
-    public String getReplyer(){
+    public Users getReplyer(){
         return replyer;
     }
 
@@ -45,7 +45,7 @@ public class ReplyList extends LitePalSupport
 
     public String getTitle(){return title;}
 
-    public ReplyList(String reply,String replyer,String timeInReply,int floor,String title)
+    public ReplyList(String reply,Users replyer,String timeInReply,int floor,String title)
     {
         this.reply=reply;
         this.replyer=replyer;

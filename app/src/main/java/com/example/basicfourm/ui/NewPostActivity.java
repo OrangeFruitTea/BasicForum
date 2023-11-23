@@ -11,12 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.basicfourm.R;
 
+import org.litepal.LitePal;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NewPostActivity extends AppCompatActivity {
     private Button btnSendPost;
     private Button btnReturn;
     private EditText PostInputTitle;
     private EditText PostInputSubTitle;
     private EditText PostInputContent;
+    public static int ObjectId = 1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +40,18 @@ public class NewPostActivity extends AppCompatActivity {
                 //Toast.makeText(NewPostActivity.this, "1", Toast.LENGTH_SHORT).show();
                 if(isPostValid())
                 {
+                    String title = PostInputTitle.getText().toString().trim();
+                    String content = PostInputContent.getText().toString().trim();
+                    String subtitle = PostInputSubTitle.getText().toString().trim();
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
+                    Date date = new Date(System.currentTimeMillis());
+
+                    PostList thePost = new PostList(title,subtitle,content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),ObjectId);
+                    boolean flag = thePost.save();
+                    if(!flag)
+                    {
+                        Toast.makeText(NewPostActivity.this, "发帖失败", Toast.LENGTH_SHORT).show();
+                    }
                     Toast.makeText(NewPostActivity.this, "帖子已发布", Toast.LENGTH_SHORT).show();
                 }
             }

@@ -11,10 +11,11 @@ public class PostList extends LitePalSupport
 {
     //标题，内容，发布者,时间,postlist的objectID
     private String title;
+    private String subtitle;
     private String content;
-    private String publisher;
+    private Users publisher;
     private String time;
-    private String objectID;
+    private int objectID;
     private int floor = 1;
     private List<ReplyList> commentList = new ArrayList<>();
     public void setTitle(String title){
@@ -25,6 +26,14 @@ public class PostList extends LitePalSupport
         return title;
     }
 
+    public void setSubTitle(String subtitle){
+        this.subtitle=subtitle;
+    }
+
+    public String getSubTitle(){
+        return subtitle;
+    }
+
     public void setContent(String content){
         this.content=content;
     }
@@ -33,11 +42,11 @@ public class PostList extends LitePalSupport
         return content;
     }
 
-    public void setPublisher(String publisher){
+    public void setPublisher(Users publisher){
         this.publisher=publisher;
     }
 
-    public String getPublisher(){
+    public Users getPublisher(){
         return publisher;
     }
 
@@ -49,21 +58,23 @@ public class PostList extends LitePalSupport
         return time;
     }
 
-    public void setObjectID(String objectID){this.objectID=objectID;}
+    public void setObjectID(int objectID){this.objectID=objectID;}
 
-    public String getObjectID(){return objectID;}
+    public int getObjectID(){return objectID;}
 
     public  int getFloor(){return floor;}
     public int getFloorForComment(){return floor++;}
 
-    public PostList(String title,String content,String publisher,String time,String objectID)
+    public PostList(String title,String subtitle,String content,Users publisher,String time,int objectID)
     {
         this.title=title;
+        this.subtitle=subtitle;
         this.content=content;
         this.publisher=publisher;
         this.time=time;
         this.objectID=objectID;
         this.commentList.add(new ReplyList(content,publisher,time,this.floor,title));
         floor++;
+        NewPostActivity.ObjectId++;
     }
 }

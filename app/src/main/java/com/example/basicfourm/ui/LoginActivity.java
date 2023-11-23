@@ -1,6 +1,8 @@
 package com.example.basicfourm.ui;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText LoginInputUserName;
     private EditText LoginInputUserPassword;
     private boolean isLogin;
+    public static Users LoginUser;
 
 
     @Override
@@ -101,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
             List<Users> list= LitePal.where(" userName = ? and userPwd = ?",UserName,UserPwd).find(Users.class);
             if(list.size()>0)
             {
+                LoginUser = list.get(0);
                 Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
             }
             else
