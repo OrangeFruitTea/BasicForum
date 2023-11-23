@@ -19,4 +19,5 @@
     <string name="textView_newpost_title">Title</string>
     <string name="textView_newpost_subTitle">SubTitle</string>
     <string name="textView_newpost_articleHint">Please enter...</string>
+    <string name="menu_btn_send_post">Send</string>
 </resources>
