@@ -64,6 +64,8 @@ public class PostList extends LitePalSupport
 
     public  int getFloor(){return floor;}
     public int getFloorForComment(){return floor++;}
+    public void setCommentList(List<ReplyList> commentList){this.commentList=commentList;}
+    public List<ReplyList> getCommentList(){return this.commentList;}
 
     public PostList(String title,String subtitle,String content,Users publisher,String time,int objectID)
     {
@@ -73,7 +75,9 @@ public class PostList extends LitePalSupport
         this.publisher=publisher;
         this.time=time;
         this.objectID=objectID;
-        this.commentList.add(new ReplyList(content,publisher,time,this.floor,title));
+        ReplyList comment = new ReplyList(content,publisher,time,this.floor,title,this);
+        this.commentList.add(comment);
+        comment.save();
         floor++;
         NewPostActivity.ObjectId++;
     }

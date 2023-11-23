@@ -52,15 +52,19 @@ public class NewPostActivity extends AppCompatActivity {
                     if(!flag)
                     {
                         Toast.makeText(NewPostActivity.this, "发帖失败", Toast.LENGTH_SHORT).show();
+                        return;
                     }
-                    Toast.makeText(NewPostActivity.this, "帖子已发布", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(NewPostActivity.this,"发帖成功", Toast.LENGTH_SHORT).show();
                 }
             }
         });
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(NewPostActivity.this, "2", Toast.LENGTH_SHORT).show();
+                PostList thePost =LitePal.where("objectID=?",String.valueOf(1)).find(PostList.class).get(1);
+                Toast.makeText(NewPostActivity.this,thePost.getTitle(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(NewPostActivity.this, "2", Toast.LENGTH_SHORT).show();
             }
         });
     }
