@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_newpost_send"
-        android:icon="@drawable/ic_newpost"
+        android:icon="@drawable/ic_new_post_light"
         android:title="sendPost"
         app:showAsAction="always" />
 
     <item
-        android:title="Module Info"
+        android:title="Module Rules"
         app:showAsAction="never"/>
 </menu>

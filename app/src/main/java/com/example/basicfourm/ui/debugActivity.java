@@ -15,6 +15,7 @@ import com.example.basicfourm.R;
 public class debugActivity extends AppCompatActivity {
     private Button btnToLogin;
     private Button btnToNewPost;
+    private Button btnToModule;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class debugActivity extends AppCompatActivity {
         setContentView(com.example.basicfourm.R.layout.activity_debug);
         btnToLogin = findViewById(R.id.btn_to_login);
         btnToNewPost = findViewById(R.id.btn_to_newpost);
+        btnToModule = findViewById(R.id.btn_to_module);
 
         //监听按钮OnClick事件
         btnToLogin.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +35,12 @@ public class debugActivity extends AppCompatActivity {
             }
         });
         btnToNewPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToNewPost(view);
+            }
+        });
+        btnToModule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ToNewPost(view);
