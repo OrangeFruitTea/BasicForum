@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkablebehavior="single">
+    <group >
         <item
             android:title="main"
             android:visible="true"
@@ -18,7 +18,7 @@
             android:checked="false"
             android:visible="false"/>
     </group>
-    <group android:checkablebehavior="single">
+    <group >
         <item
             android:title="sub"
             android:visible="true"
