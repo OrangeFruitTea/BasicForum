@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--显示不同帖子的模块区域，也是用户一开始看到的区域-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/header2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_bg_title_first"
+        android:elevation="5dp"
+        android:minHeight="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_menu_light"
+        app:title="New Post"
+        app:titleTextColor="@color/app_text_title_first" />
+</LinearLayout>
