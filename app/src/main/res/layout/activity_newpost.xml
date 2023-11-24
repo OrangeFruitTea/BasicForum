@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/header"
+        android:id="@+id/header_newpost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/app_bg_title_first"

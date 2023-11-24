@@ -38,6 +38,9 @@
 
         <!--新建帖子界面-->
         <activity android:name=".ui.NewPostActivity"></activity>
+
+<!--        模块（论坛主体）界面-->
+        <activity android:name=".ui.ModuleActivity"></activity>
     </application>
 
 </manifest>

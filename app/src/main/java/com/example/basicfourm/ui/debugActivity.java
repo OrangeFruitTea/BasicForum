@@ -43,7 +43,7 @@ public class debugActivity extends AppCompatActivity {
         btnToModule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToNewPost(view);
+                ToModule(view);
             }
         });
     }
@@ -58,4 +58,8 @@ public class debugActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void ToModule(View view) {
+        Intent intent = new Intent(this, ModuleActivity.class);
+        startActivity(intent);
+    }
 }

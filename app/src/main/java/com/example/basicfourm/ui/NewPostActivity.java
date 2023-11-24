@@ -1,11 +1,9 @@
 package com.example.basicfourm.ui;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
@@ -38,7 +36,7 @@ public class NewPostActivity extends AppCompatActivity {
         PostInputContent = findViewById(R.id.newpost_input_content);
         PostInputTitle = findViewById(R.id.newpost_input_title);
         PostInputSubTitle = findViewById(R.id.newpost_input_subTitle);
-        header = findViewById(R.id.header);
+        header = findViewById(R.id.header_newpost);
         setSupportActionBar(header);
 
 
