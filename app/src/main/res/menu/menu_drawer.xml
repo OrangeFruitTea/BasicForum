@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkablebehavior="single">
+        <item
+            android:title="main"
+            android:visible="true"
+            android:icon="@drawable/ic_drawer_down"/>
+        <item
+            android:title="test"
+            android:checked="false"
+            android:visible="false"/>
+        <item
+            android:title="test"
+            android:checked="false"
+            android:visible="false"/>
+        <item
+            android:title="test"
+            android:checked="false"
+            android:visible="false"/>
+    </group>
+    <group android:checkablebehavior="single">
+        <item
+            android:title="sub"
+            android:visible="true"
+            android:icon="@drawable/ic_drawer_down"/>
+        <item
+            android:title="test"
+            android:checked="false"
+            android:visible="false"/>
+        <item
+            android:title="test"
+            android:checked="false"
+            android:visible="false"/>
+        <item
+            android:title="test"
+            android:checked="false"
+            android:visible="false"/>
+    </group>
+</menu>
