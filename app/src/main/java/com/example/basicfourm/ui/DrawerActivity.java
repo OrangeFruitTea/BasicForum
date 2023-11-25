@@ -2,7 +2,9 @@ package com.example.basicfourm.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.basicfourm.R;
@@ -30,8 +33,9 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
         drawerLayout = findViewById(R.id.layout_drawer);
         //这个toolbar赋值语句不知道为什么总是因为它闪退
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        toolbar = (Toolbar) findViewById(R.id.header_module);
         setSupportActionBar(toolbar);
+
 
         //操作栏抽屉切换
         toggle = new ActionBarDrawerToggle(
@@ -47,9 +51,82 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Class fragementClass = null;
+        Class fragmentClass = null;
         FragmentManager fragmentManager = getSupportFragmentManager();
 
+        if (item.getItemId() == R.id.FirstAge) {
+            //处理一级菜单的点击事件
+            FirstAge();
+        } else if (item.getItemId() == R.id.Module1) {
+            //点击二级菜单栏时，关闭侧边栏，跳转到对应功能页面
+            drawerLayout.closeDrawers();
+        } else if (item.getItemId() == R.id.Module2) {
+
+        } else if (item.getItemId() == R.id.Module3) {
+
+        } else if (item.getItemId() == R.id.SecondAge) {
+            SecondAge();
+
+        } else if (item.getItemId() == R.id.Module4) {
+
+        } else if (item.getItemId() == R.id.Module5) {
+
+        } else if (item.getItemId() == R.id.Module6) {
+
+        }
+//        try {
+//            //newInstance()是Java中的方法，用于动态创建类的新实例
+//            Fragment fragment = (Fragment) fragmentClass.newInstance();
+//            //beginTransaction方法是SQLite数据库中用于开启事务的方法
+//            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+//            //setChecked() 在 APP 应用里被用来设置指定 id 唯一标识的 checkbox 多选框 或 radioButton 单选按钮 选中状态
+//            item.setChecked(true);
+//            //setTitle(title);
+//            //Log.e(TAG, title);
+//            drawerLayout.closeDrawers();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         return true;
     }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
+    }
+
+    private void FirstAge() {
+        Menu menu = navigationView.getMenu();
+        MenuItem subMenu1 = menu.findItem(R.id.Module1);
+        MenuItem subMenu2 = menu.findItem(R.id.Module2);
+        MenuItem subMenu3 = menu.findItem(R.id.Module3);
+
+        if (subMenu1.isVisible()) {
+            subMenu1.setVisible(false);
+            subMenu2.setVisible(false);
+            subMenu3.setVisible(false);
+        } else {
+            subMenu1.setVisible(true);
+            subMenu2.setVisible(true);
+            subMenu3.setVisible(true);
+        }
+    }
+
+    private void SecondAge() {
+        Menu menu = navigationView.getMenu();
+        MenuItem subMenu1 = menu.findItem(R.id.Module4);
+        MenuItem subMenu2 = menu.findItem(R.id.Module5);
+        MenuItem subMenu3 = menu.findItem(R.id.Module6);
+
+        if (subMenu1.isVisible()) {
+            subMenu1.setVisible(false);
+            subMenu2.setVisible(false);
+            subMenu3.setVisible(false);
+        } else {
+            subMenu1.setVisible(true);
+            subMenu2.setVisible(true);
+            subMenu3.setVisible(true);
+        }
+    }
+
 }

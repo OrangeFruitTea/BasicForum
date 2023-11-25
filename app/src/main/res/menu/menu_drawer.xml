@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group >
+    <group android:checkableBehavior="single">
         <item
+            android:id="@+id/FirstAge"
+            android:icon="@drawable/ic_drawer_down"
             android:title="main"
-            android:visible="true"
-            android:icon="@drawable/ic_drawer_down"/>
+            android:visible="true" />
         <item
-            android:title="test"
+            android:id="@+id/Module1"
             android:checked="false"
-            android:visible="false"/>
+            android:title="test"
+            android:visible="false" />
         <item
-            android:title="test"
+            android:id="@+id/Module2"
             android:checked="false"
-            android:visible="false"/>
+            android:title="test"
+            android:visible="false" />
         <item
-            android:title="test"
+            android:id="@+id/Module3"
             android:checked="false"
-            android:visible="false"/>
+            android:title="test"
+            android:visible="false" />
     </group>
-    <group >
+    <group android:checkableBehavior="single">
         <item
+            android:id="@+id/SecondAge"
+            android:icon="@drawable/ic_drawer_down"
             android:title="sub"
-            android:visible="true"
-            android:icon="@drawable/ic_drawer_down"/>
+            android:visible="true" />
         <item
-            android:title="test"
+            android:id="@+id/Module4"
             android:checked="false"
-            android:visible="false"/>
+            android:title="test"
+            android:visible="false" />
         <item
-            android:title="test"
+            android:id="@+id/Module5"
             android:checked="false"
-            android:visible="false"/>
+            android:title="test"
+            android:visible="false" />
         <item
-            android:title="test"
+            android:id="@+id/Module6"
             android:checked="false"
-            android:visible="false"/>
+            android:title="test"
+            android:visible="false" />
     </group>
 </menu>
