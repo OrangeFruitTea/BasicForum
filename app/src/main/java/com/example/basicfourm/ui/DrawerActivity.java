@@ -29,6 +29,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         setContentView(R.layout.layout_drawer);
 
         drawerLayout = findViewById(R.id.layout_drawer);
+        //这个toolbar赋值语句不知道为什么总是因为它闪退
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
