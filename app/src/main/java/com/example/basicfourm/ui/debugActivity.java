@@ -59,7 +59,7 @@ public class debugActivity extends AppCompatActivity {
     }
 
     private void ToModule(View view) {
-        Intent intent = new Intent(this, ModuleActivity.class);
+        Intent intent = new Intent(this, DrawerActivity.class);
         startActivity(intent);
     }
 }
