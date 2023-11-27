@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +29,8 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
     private ActionBarDrawerToggle toggle;
 
+    private TextView ShowUserName;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +47,24 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         //使用ActionBarDrawerToggle 都是DrawerLayout用来控制ToolBar的显示
         drawerLayout.addDrawerListener(toggle);
+
         //同步状态
         toggle.syncState();
 
         navigationView = findViewById(R.id.drawer_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        View TheNavi = navigationView.getHeaderView(0);
+
+        ShowUserName = (TextView) TheNavi.findViewById(R.id.textView_drawer_username);
+        if(ShowUserName==null)
+        {
+            Toast.makeText(DrawerActivity.this, "空指针错误!", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            ShowUserName.setText(LoginActivity.LoginUser.getUserName());
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,6 +134,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
     private void FirstAge() {
         Menu menu = navigationView.getMenu();
+
         MenuItem subMenu1 = menu.findItem(R.id.Module1);
         MenuItem subMenu2 = menu.findItem(R.id.Module2);
         MenuItem subMenu3 = menu.findItem(R.id.Module3);

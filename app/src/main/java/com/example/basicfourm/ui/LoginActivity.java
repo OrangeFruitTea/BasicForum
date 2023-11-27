@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText LoginInputUserName;
     private EditText LoginInputUserPassword;
     private boolean isLogin;
-    public static Users LoginUser;
+    public static Users LoginUser=new Users("test","",0);
 
 
     @Override
