@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_detail_new_comment"
+        android:icon="@drawable/ic_new_comment_light"
+        android:title="sendComment"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_detail_favorite"
+        android:icon="@drawable/ic_not_favorite_light"
+        android:title="addToFavorite"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_detail_look_op"
+        android:icon="@drawable/ic_not_only_light"
+        android:title="lookOpOnly"
+        app:showAsAction="always"/>
+
+    <item
+        android:title="复制地址"
+        app:showAsAction="never"/>
+    <item
+        android:title="举报"
+        app:showAsAction="never"/>
+    <item
+        android:title="分享"
+        app:showAsAction="never"/>
+</menu>

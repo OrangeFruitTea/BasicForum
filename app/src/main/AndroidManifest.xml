@@ -42,6 +42,9 @@
 <!--        模块（论坛主体）界面-->
         <activity android:name=".ui.DrawerActivity"></activity>
         <activity android:name=".ui.ModuleActivity"></activity>
+
+<!--        帖子详情界面-->
+        <activity android:name=".ui.PostDetailActivity"></activity>
     </application>
 
 </manifest>

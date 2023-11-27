@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.basicfourm.R;
 
+import org.litepal.LitePal;
 import org.w3c.dom.Text;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class PostAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         PostList post = postArray.get(position);
+//        postArray = LitePal.findAll(PostList.class);
         if (holder instanceof PostViewHolder) {
             PostViewHolder postViewHolder = (PostViewHolder) holder;
             postViewHolder.PostTitle.setText(post.getTitle());
