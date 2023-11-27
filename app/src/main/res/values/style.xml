@@ -18,4 +18,23 @@
         <item name="android:textColorSecondary">@color/white</item>
     </style>
 
+    <style name="PostCommentTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/app_post_main_text</item>
+    </style>
+    <style name="PostInfoTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/app_post_info</item>
+    </style>
+    <style name="PostTitleTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/app_post_title</item>
+    </style>
+    <style name="PostSubTitleTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/app_post_sub_title</item>
+    </style>
+
 </resources>

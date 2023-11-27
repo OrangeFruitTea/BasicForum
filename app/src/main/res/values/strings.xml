@@ -23,4 +23,6 @@
 
     <string name="navigation_drawer_open"></string>
     <string name="navigation_drawer_close"></string>
+
+    <string name="textView_test_long">指定TextView的最大行数。例如，将其设置为2表示最多显示两行文本，超出的部分将被省略号（...）替代。</string>
 </resources>

@@ -23,6 +23,12 @@
     <color name="app_newpost_hint">#999999</color>
     <color name="app_newpost_content">#333333</color>
 
+<!--    用于layout_post帖子浏览界面对单个帖子信息的颜色-->
+    <color name="app_post_info">#666666</color>
+    <color name="app_post_main_text">#000000</color>
+    <color name="app_post_title">#000000</color>
+    <color name="app_post_sub_title">#666666</color>
+
     <!--其他颜色-->
     <color name="app_layout">#546C85</color>
     <color name="app_bg_night">#384450</color>

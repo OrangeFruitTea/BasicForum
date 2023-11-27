@@ -10,10 +10,15 @@ import java.util.List;
 public class PostList extends LitePalSupport
 {
     //标题，内容，发布者,时间,postlist的objectID
+//    标题
     private String title;
+//    副标题
     private String subtitle;
+    //内容
     private String content;
+    //发布者
     private Users publisher;
+    //发布时间
     private String time;
     private int objectID;
     private int floor = 1;
