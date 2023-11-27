@@ -1,6 +1,7 @@
 package com.example.basicfourm.ui;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +24,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
+
     private ActionBarDrawerToggle toggle;
 
     @Override
@@ -32,7 +34,6 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         setContentView(R.layout.layout_drawer);
 
         drawerLayout = findViewById(R.id.layout_drawer);
-        //这个toolbar赋值语句不知道为什么总是因为它闪退
         toolbar = (Toolbar) findViewById(R.id.header_module);
         setSupportActionBar(toolbar);
 
@@ -47,6 +48,26 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
         navigationView = findViewById(R.id.drawer_nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_module, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu_newpost_send) {
+            openActivityNewPost();
+        }
+        return true;
+    }
+
+    private void openActivityNewPost() {
+        Intent intent = new Intent(this, NewPostActivity.class);
+        startActivity(intent);
     }
 
     @Override

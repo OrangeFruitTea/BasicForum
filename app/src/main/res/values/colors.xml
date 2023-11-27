@@ -9,6 +9,9 @@
     <!--应用LOGO与基本色-->
     <color name="app_text_title_first">#FFFFFF</color>
     <color name="app_bg_title_first">#2E9DFD</color>
+    <color name="color_primary">#2E9DFD</color>
+    <color name="color_primary_dark">#2570B1</color>
+    <color name="color_accent">#BA00B0</color>
     <color name="app_text_title_second">#2E9DFD</color>
     <color name="app_bg_title_second">#FFFFFF</color>
 

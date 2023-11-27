@@ -7,13 +7,14 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/header_module"
+        android:theme="@style/ToolbarThemeLight"
+        android:background="@color/color_primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_bg_title_first"
         android:elevation="5dp"
         android:minHeight="?attr/actionBarSize"
         app:menu="@menu/menu_module"
         app:navigationIcon="@drawable/ic_menu_light"
         app:title="Test Module"
-        app:titleTextColor="@color/app_text_title_first" />
+        app:titleTextColor="@color/white"/>
 </LinearLayout>
