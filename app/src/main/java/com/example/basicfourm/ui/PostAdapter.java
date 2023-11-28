@@ -17,6 +17,11 @@ import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter {
     private List<PostList> postArray;
+
+    public PostAdapter(List<PostList> array) {
+        postArray = array;
+    }
+
     @NonNull
     @Override
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,6 +39,8 @@ public class PostAdapter extends RecyclerView.Adapter {
             postViewHolder.PostSubTitle.setText(post.getSubTitle());
             postViewHolder.PostTime.setText(post.getTime());
             postViewHolder.PostAuthor.setText(post.getPublisher().getUserName());
+            postViewHolder.PostInfo.setText(post.getContent());
+            postViewHolder.PostCommentCount.setText(post.getCommentList().size());
         }
     }
 
@@ -47,6 +54,8 @@ public class PostAdapter extends RecyclerView.Adapter {
         TextView PostSubTitle;
         TextView PostTime;
         TextView PostAuthor;
+        TextView PostInfo;
+        TextView PostCommentCount;
 
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -54,6 +63,8 @@ public class PostAdapter extends RecyclerView.Adapter {
             PostSubTitle= itemView.findViewById(R.id.textView_post_sub_title);
             PostTitle = itemView.findViewById(R.id.textView_post_title);
             PostAuthor = itemView.findViewById(R.id.textView_post_username);
+            PostInfo = itemView.findViewById(R.id.TextView_post_main_text);
+            PostCommentCount = itemView.findViewById(R.id.textView_post_comment_count);
         }
     }
 }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,16 +18,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.basicfourm.R;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.List;
 
 public class DrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "DrawerActivity";
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    private RecyclerView layoutAllPost;
+    private PostAdapter adapter;
+    private List<PostList> allPost;
     private Toolbar toolbar;
-
     private ActionBarDrawerToggle toggle;
 
     private TextView ShowUserName;
@@ -41,6 +48,10 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         toolbar = (Toolbar) findViewById(R.id.header_module);
         setSupportActionBar(toolbar);
 
+        //将帖子信息从数据库中添加至界面
+        layoutAllPost = findViewById(R.id.view_all_post);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        adapter = new PostAdapter(allPost);
 
         //操作栏抽屉切换
         toggle = new ActionBarDrawerToggle(
