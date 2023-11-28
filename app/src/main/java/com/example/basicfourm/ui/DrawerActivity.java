@@ -24,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.basicfourm.R;
 import com.google.android.material.navigation.NavigationView;
 
+import org.litepal.LitePal;
+
 import java.util.List;
 
 public class DrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -51,6 +53,8 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         //将帖子信息从数据库中添加至界面
         layoutAllPost = findViewById(R.id.view_all_post);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        allPost = LitePal.findAll(PostList.class);
+        //Toast.makeText(DrawerActivity.this,allPost.get(0).getTitle(), Toast.LENGTH_SHORT).show();
         adapter = new PostAdapter(allPost);
 
         //操作栏抽屉切换
