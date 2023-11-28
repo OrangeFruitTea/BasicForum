@@ -40,7 +40,7 @@ public class PostAdapter extends RecyclerView.Adapter {
             postViewHolder.PostTime.setText(post.getTime());
             postViewHolder.PostAuthor.setText(post.getPublisher().getUserName());
             postViewHolder.PostInfo.setText(post.getContent());
-            postViewHolder.PostCommentCount.setText(post.getCommentList().size());
+            postViewHolder.PostCommentCount.setText(String.valueOf(post.getFloor()-1));
         }
     }
 
