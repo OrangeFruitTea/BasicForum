@@ -2,6 +2,7 @@ package com.example.basicfourm.ui;
 
 import org.litepal.LitePal;
 import org.litepal.crud.LitePalSupport;
+import org.w3c.dom.Comment;
 
 import java.util.List;
 
@@ -18,5 +19,12 @@ public class PostManager extends LitePalSupport
     public PostManager(int ObjectId)
     {
         this.ObjectId=ObjectId;
+    }
+    public void addCommentWithPostId(int PostId,ReplyList Comment)
+    {
+       PostList thePost = LitePal.where("objectid=?",String.valueOf(PostId)).findFirst(PostList.class);
+       thePost.getCommentList().add(Comment);
+       Comment.save();
+       thePost.save();
     }
 }

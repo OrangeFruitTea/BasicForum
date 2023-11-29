@@ -44,12 +44,9 @@ public class NewPostActivity extends AppCompatActivity {
         header.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //PostList thePost =LitePal.where("objectID=?",String.valueOf(1)).find(PostList.class).get(5);
-                //ReplyList comment=LitePal.findAll();
+                //PostList thePost = LoginActivity.thePostManager.getPostById(2);
                 //Toast.makeText(NewPostActivity.this,thePost.getTitle(), Toast.LENGTH_SHORT).show();
                 //Toast.makeText(NewPostActivity.this,LitePal.where("postlist_id=?",String.valueOf(10)).findFirst(ReplyList.class).getTitle(), Toast.LENGTH_SHORT).show();
-                //thePost.setTitle("try a new way");
-                //thePost.save();
             }
         });
 //        btnSendPost.setOnClickListener(new View.OnClickListener() {
