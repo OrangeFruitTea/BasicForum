@@ -53,9 +53,18 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         //将帖子信息从数据库中添加至界面
         layoutAllPost = findViewById(R.id.view_all_post);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        allPost = LitePal.findAll(PostList.class);
-        //Toast.makeText(DrawerActivity.this,allPost.get(0).getTitle(), Toast.LENGTH_SHORT).show();
+        allPost = LoginActivity.thePostManager.getAllPost();
+        Toast.makeText(DrawerActivity.this,allPost.get(0).getTitle(), Toast.LENGTH_SHORT).show();
         adapter = new PostAdapter(allPost);
+        if(layoutAllPost==null)
+        {
+
+        }
+        else
+        {
+            layoutAllPost.setAdapter(adapter);
+            layoutAllPost.setLayoutManager(layoutManager);
+        }
 
         //操作栏抽屉切换
         toggle = new ActionBarDrawerToggle(

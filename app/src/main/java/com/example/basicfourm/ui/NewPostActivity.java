@@ -26,7 +26,6 @@ public class NewPostActivity extends AppCompatActivity {
     private EditText PostInputTitle;
     private EditText PostInputSubTitle;
     private EditText PostInputContent;
-    public static int ObjectId = 1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +44,12 @@ public class NewPostActivity extends AppCompatActivity {
         header.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PostList thePost =LitePal.where("objectID=?",String.valueOf(1)).find(PostList.class).get(1);
-                Toast.makeText(NewPostActivity.this,thePost.getTitle(), Toast.LENGTH_SHORT).show();
+                //PostList thePost =LitePal.where("objectID=?",String.valueOf(1)).find(PostList.class).get(5);
+                //ReplyList comment=LitePal.findAll();
+                //Toast.makeText(NewPostActivity.this,thePost.getTitle(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(NewPostActivity.this,LitePal.where("postlist_id=?",String.valueOf(10)).findFirst(ReplyList.class).getTitle(), Toast.LENGTH_SHORT).show();
+                //thePost.setTitle("try a new way");
+                //thePost.save();
             }
         });
 //        btnSendPost.setOnClickListener(new View.OnClickListener() {
@@ -104,13 +107,15 @@ public class NewPostActivity extends AppCompatActivity {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
                 Date date = new Date(System.currentTimeMillis());
 
-                PostList thePost = new PostList(title,subtitle,content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),ObjectId);
+                PostList thePost = new PostList(title,subtitle,content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),LoginActivity.thePostManager.getObjectId());
+                ReplyList comment = new ReplyList(content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),thePost.getFloorForComment(),title,thePost);
+                thePost.getCommentList().add(comment);
+                comment.save();
                 boolean flag = thePost.save();
                 if(!flag)
                 {
                     Toast.makeText(NewPostActivity.this, "发帖失败", Toast.LENGTH_SHORT).show();
                 }
-
                 Toast.makeText(NewPostActivity.this,"发帖成功", Toast.LENGTH_SHORT).show();
             }
         }

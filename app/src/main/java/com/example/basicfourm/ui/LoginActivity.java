@@ -32,7 +32,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText LoginInputUserPassword;
     private boolean isLogin;
     public static Users LoginUser=new Users("test","",0);
-
+    public static PostManager thePostManager = LitePal.findFirst(PostManager.class);
+    //public static PostManager thePostManager = new PostManager(1); 第一次使用先创建一个
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
