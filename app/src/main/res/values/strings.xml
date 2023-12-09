@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">BasicForum</string>
+<!--    activity公用双击返回键退出程序提示-->
+    <string name="text_doubleClickToQuit">Press Again to quit</string>
+
     <!--activity_login登录界面布局所需文本-->
     <string name="btn_login">Login</string>
     <string name="btn_sign_up">Sign Up</string>
