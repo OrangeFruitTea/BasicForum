@@ -10,7 +10,14 @@ public class PostManager extends LitePalSupport
 {
     private int ObjectId = 1;
     public int getObjectId(){return ObjectId++;}
-    public PostList getPostById(int ObjectId){return LitePal.where("objectid=?",String.valueOf(ObjectId)).findFirst(PostList.class);}
+    public PostList getPostById(int ObjectId) throws ClassNotFoundException
+    {
+        if(ObjectId>=this.ObjectId||ObjectId<=0)
+        {
+            throw new ClassNotFoundException("请求ID不合法");
+        }
+        return LitePal.where("objectid=?",String.valueOf(ObjectId)).findFirst(PostList.class);
+    }
     public List<PostList> getAllPost(){return LitePal.findAll(PostList.class);}
     public ReplyList getCommentForCertainPostByFloor(int PostId,int Floor){return LitePal.where("postlist_id=? and floor=?",String.valueOf(PostId),String.valueOf(Floor)).findFirst(ReplyList.class);}
     public List<ReplyList> getAllComment(){return LitePal.findAll(ReplyList.class);}

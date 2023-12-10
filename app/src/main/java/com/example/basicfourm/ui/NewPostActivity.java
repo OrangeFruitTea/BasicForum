@@ -44,6 +44,14 @@ public class NewPostActivity extends AppCompatActivity {
         header.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try
+                {
+                   PostList thePost = LoginActivity.thePostManager.getPostById(2);
+                }
+                catch (ClassNotFoundException e)
+                {
+                    Toast.makeText(NewPostActivity.this,"提供的ID不合法", Toast.LENGTH_SHORT).show();
+                }
                 //PostList thePost = LoginActivity.thePostManager.getPostById(2);
                 //Toast.makeText(NewPostActivity.this,thePost.getTitle(), Toast.LENGTH_SHORT).show();
                 //Toast.makeText(NewPostActivity.this,LitePal.where("postlist_id=?",String.valueOf(10)).findFirst(ReplyList.class).getTitle(), Toast.LENGTH_SHORT).show();
@@ -116,6 +124,7 @@ public class NewPostActivity extends AppCompatActivity {
                 Toast.makeText(NewPostActivity.this,"发帖成功", Toast.LENGTH_SHORT).show();
                 finish();
             }
+            LoginActivity.thePostManager.save();
         }
         return super.onOptionsItemSelected(item);
     }
