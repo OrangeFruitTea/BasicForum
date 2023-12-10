@@ -1,9 +1,11 @@
 package com.example.basicfourm.ui;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +49,16 @@ public class PostAdapter extends RecyclerView.Adapter {
             postViewHolder.PostCommentCount.setText(String.valueOf(post.getFloor()-1));
         }
 
-
+        //设置帖子点击进入详情界面
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(view.getContext(), PostDetailActivity.class);
+                intent.putExtra("postId", post.getObjectID());
+                view.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -19,9 +19,15 @@ import androidx.fragment.app.FragmentManager;
 import com.example.basicfourm.R;
 import com.google.android.material.navigation.NavigationView;
 
+import org.litepal.LitePal;
+
 public class PostDetailActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "PostDetailActivity";
     private Toolbar toolbar;
+    private int postId;
+    private PostList selfInfo;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +38,10 @@ public class PostDetailActivity extends AppCompatActivity implements NavigationV
         toolbar = (Toolbar) findViewById(R.id.header_post_detail);
         setSupportActionBar(toolbar);
 
+        Intent intent = getIntent();
+        postId = intent.getIntExtra("postId", -1);
+
+        selfInfo = LitePal.find(PostList.class, postId);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
