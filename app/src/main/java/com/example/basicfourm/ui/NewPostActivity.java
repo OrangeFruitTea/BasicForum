@@ -114,6 +114,7 @@ public class NewPostActivity extends AppCompatActivity {
                     Toast.makeText(NewPostActivity.this, "发帖失败", Toast.LENGTH_SHORT).show();
                 }
                 Toast.makeText(NewPostActivity.this,"发帖成功", Toast.LENGTH_SHORT).show();
+                finish();
             }
         }
         return super.onOptionsItemSelected(item);

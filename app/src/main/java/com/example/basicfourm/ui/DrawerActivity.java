@@ -2,6 +2,7 @@ package com.example.basicfourm.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -21,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.basicfourm.R;
 import com.google.android.material.navigation.NavigationView;
@@ -38,8 +40,10 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
     private List<PostList> allPost;
     private Toolbar toolbar;
     private ActionBarDrawerToggle toggle;
+    private SwipeRefreshLayout refreshLayout;
 
     private TextView ShowUserName;
+    private long exitTime;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +53,18 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
         drawerLayout = findViewById(R.id.layout_drawer);
         toolbar = (Toolbar) findViewById(R.id.header_module);
+
+        //设置刷新操作和回调函数
         setSupportActionBar(toolbar);
+        refreshLayout = findViewById(R.id.layout_refresh);
+            //设置下拉刷新图标颜色
+        refreshLayout.setColorSchemeColors(Color.parseColor("#2E9DFD"));
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshData();
+            }
+        });
 
         //将帖子信息从数据库中添加至界面
         layoutAllPost = findViewById(R.id.view_all_post);
@@ -57,12 +72,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         allPost = LoginActivity.thePostManager.getAllPost();
         Toast.makeText(DrawerActivity.this,allPost.get(0).getTitle(), Toast.LENGTH_SHORT).show();
         adapter = new PostAdapter(allPost);
-        if(layoutAllPost==null)
-        {
-
-        }
-        else
-        {
+        if(layoutAllPost != null) {
             layoutAllPost.setAdapter(adapter);
             layoutAllPost.setLayoutManager(layoutManager);
         }
@@ -192,15 +202,46 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         }
     }
 
-    //实现只在冷启动时显示开屏动画
+    //实现下拉刷新更新帖子浏览布局
+    private void refreshData() {
+        updateAdapter();
+        adapter.notifyDataSetChanged();
+        refreshLayout.setRefreshing(false);
+    }
+
+    //更新帖子布局的适配器
+    private void updateAdapter() {
+        if (adapter != null) {
+            allPost = LoginActivity.thePostManager.getAllPost(); //获取最新的数据源
+            adapter.setData(allPost);
+        }
+    }
+
+//    //实现只在冷启动时显示开屏动画
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            //实现只在冷启动时显示开屏动画
+//            Intent intent = new Intent(Intent.ACTION_MAIN);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            intent.addCategory(Intent.CATEGORY_HOME);
+//            startActivity(intent);
+//            return true;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
+
+    // 实现双击退出程序
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            //实现只在冷启动时显示开屏动画
-            Intent intent = new Intent(Intent.ACTION_MAIN);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addCategory(Intent.CATEGORY_HOME);
-            startActivity(intent);
+            if (System.currentTimeMillis() - exitTime > 1500) {
+                Toast.makeText(DrawerActivity.this, "Press again to quit", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                DrawerActivity.this.finish();
+            }
             return true;
         }
         return super.onKeyDown(keyCode, event);

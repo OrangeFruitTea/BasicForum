@@ -24,11 +24,13 @@
 <!--            android:layout_height="match_parent"-->
 <!--            app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/layout_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <view class="androidx.recyclerview.widget.RecyclerView"
+            <view
                 android:id="@+id/view_all_post"
+                class="androidx.recyclerview.widget.RecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

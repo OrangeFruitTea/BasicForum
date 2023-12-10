@@ -22,6 +22,10 @@ public class PostAdapter extends RecyclerView.Adapter {
         postArray = array;
     }
 
+    public void setData(List<PostList> array) {
+        postArray = array;
+    }
+
     @NonNull
     @Override
     public PostViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -42,6 +46,8 @@ public class PostAdapter extends RecyclerView.Adapter {
             postViewHolder.PostInfo.setText(post.getContent());
             postViewHolder.PostCommentCount.setText(String.valueOf(post.getFloor()-1));
         }
+
+
     }
 
     @Override

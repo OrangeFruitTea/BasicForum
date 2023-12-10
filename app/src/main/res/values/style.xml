@@ -22,19 +22,19 @@
     <style name="ToolbarThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColorSecondary">@color/white</item>
     </style>
-<!--        帖子评论字体相关-->
+<!--        帖子正文字体相关-->
     <style name="PostCommentTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/app_post_main_text</item>
     </style>
-<!--        帖子正文字体相关-->
+<!--        帖子顶部信息字体相关-->
     <style name="PostInfoTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">@color/app_post_info</item>
     </style>
 <!--        帖子标题字体相关-->
     <style name="PostTitleTextStyle" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/app_post_title</item>
     </style>
