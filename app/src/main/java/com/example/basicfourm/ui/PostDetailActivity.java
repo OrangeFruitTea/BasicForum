@@ -106,6 +106,7 @@ public class PostDetailActivity extends AppCompatActivity  {
 
     private void openActivityNewPost() {
         Intent intent = new Intent(this, NewPostActivity.class);
+        intent.putExtra("Type", false);
         startActivity(intent);
 
     }

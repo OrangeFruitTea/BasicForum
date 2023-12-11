@@ -118,6 +118,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
     private void openActivityNewPost() {
         Intent intent = new Intent(this, NewPostActivity.class);
+        intent.putExtra("Type", true);
         startActivity(intent);
     }
 

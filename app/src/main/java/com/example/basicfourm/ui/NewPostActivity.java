@@ -1,5 +1,6 @@
 package com.example.basicfourm.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +25,7 @@ public class NewPostActivity extends AppCompatActivity {
     private EditText PostInputTitle;
     private EditText PostInputSubTitle;
     private EditText PostInputContent;
+    boolean sendingPost;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,14 @@ public class NewPostActivity extends AppCompatActivity {
         PostInputSubTitle = findViewById(R.id.newpost_input_subTitle);
         header = findViewById(R.id.header_newpost);
         setSupportActionBar(header);
+
+        Intent selfIntent = getIntent();
+        sendingPost = selfIntent.getBooleanExtra("Type", true);
+        if (sendingPost) {
+            header.setTitle("New Post");
+        } else {
+            header.setTitle("New Comment");
+        }
 
 
         //设置按钮监听事件
@@ -48,6 +58,7 @@ public class NewPostActivity extends AppCompatActivity {
                 {
                     Toast.makeText(NewPostActivity.this,"提供的ID不合法", Toast.LENGTH_SHORT).show();
                 }
+                //实现返回功能
                 //PostList thePost = LoginActivity.thePostManager.getPostById(2);
                 //Toast.makeText(NewPostActivity.this,thePost.getTitle(), Toast.LENGTH_SHORT).show();
                 //Toast.makeText(NewPostActivity.this,LitePal.where("postlist_id=?",String.valueOf(10)).findFirst(ReplyList.class).getTitle(), Toast.LENGTH_SHORT).show();
