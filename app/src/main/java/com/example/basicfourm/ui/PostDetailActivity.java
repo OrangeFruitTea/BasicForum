@@ -27,7 +27,7 @@ import org.litepal.LitePal;
 
 import java.util.List;
 
-public class PostDetailActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class PostDetailActivity extends AppCompatActivity  {
     private static final String TAG = "PostDetailActivity";
     private Toolbar toolbar;
     private int postId;
@@ -108,11 +108,6 @@ public class PostDetailActivity extends AppCompatActivity implements NavigationV
         Intent intent = new Intent(this, NewPostActivity.class);
         startActivity(intent);
 
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return true;
     }
 
     @Override

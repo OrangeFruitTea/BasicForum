@@ -21,8 +21,6 @@ import java.util.Date;
 public class NewPostActivity extends AppCompatActivity {
 
     private Toolbar header;
-//    private Button btnSendPost;
-//    private Button btnReturn;
     private EditText PostInputTitle;
     private EditText PostInputSubTitle;
     private EditText PostInputContent;
@@ -30,8 +28,6 @@ public class NewPostActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newpost);
-//        btnReturn = findViewById(R.id.btn_return);
-//        btnSendPost= findViewById(R.id.btn_sendPost);
         PostInputContent = findViewById(R.id.newpost_input_content);
         PostInputTitle = findViewById(R.id.newpost_input_title);
         PostInputSubTitle = findViewById(R.id.newpost_input_subTitle);
@@ -57,38 +53,6 @@ public class NewPostActivity extends AppCompatActivity {
                 //Toast.makeText(NewPostActivity.this,LitePal.where("postlist_id=?",String.valueOf(10)).findFirst(ReplyList.class).getTitle(), Toast.LENGTH_SHORT).show();
             }
         });
-//        btnSendPost.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //Toast.makeText(NewPostActivity.this, "1", Toast.LENGTH_SHORT).show();
-//                if(isPostValid())
-//                {
-//                    String title = PostInputTitle.getText().toString().trim();
-//                    String content = PostInputContent.getText().toString().trim();
-//                    String subtitle = PostInputSubTitle.getText().toString().trim();
-//                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
-//                    Date date = new Date(System.currentTimeMillis());
-//
-//                    PostList thePost = new PostList(title,subtitle,content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),ObjectId);
-//                    boolean flag = thePost.save();
-//                    if(!flag)
-//                    {
-//                        Toast.makeText(NewPostActivity.this, "发帖失败", Toast.LENGTH_SHORT).show();
-//                        return;
-//                    }
-//
-//                    Toast.makeText(NewPostActivity.this,"发帖成功", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//        btnReturn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                PostList thePost =LitePal.where("objectID=?",String.valueOf(1)).find(PostList.class).get(1);
-//                Toast.makeText(NewPostActivity.this,thePost.getTitle(), Toast.LENGTH_SHORT).show();
-//                //Toast.makeText(NewPostActivity.this, "2", Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
     }
 
