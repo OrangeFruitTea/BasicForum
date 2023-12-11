@@ -105,8 +105,8 @@ public class PostDetailActivity extends AppCompatActivity implements NavigationV
     }
 
     private void openActivityNewPost() {
-//        Intent intent = new Intent(this, NewPostActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, NewPostActivity.class);
+        startActivity(intent);
 
     }
 
