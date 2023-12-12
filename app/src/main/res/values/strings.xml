@@ -12,6 +12,8 @@
     <string name="textView_colon">: </string>
     <string name="textView_login_welcome">Welcome back</string>
     <string name="textView_login_welcome_hint">Sign in with your account</string>
+    <string name="textView_login_welcome_new_user">Create new account</string>
+    <string name="textView_login_welcome_new_user_hint">Sign up with username and password</string>
     <string name="textView_login_username">Username</string>
     <string name="textView_login_pwd">Password</string>
     <string name="btn_choose_login">LOGIN</string>

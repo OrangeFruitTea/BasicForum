@@ -92,12 +92,9 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         View TheNavi = navigationView.getHeaderView(0);
 
         ShowUserName = (TextView) TheNavi.findViewById(R.id.textView_drawer_username);
-        if(ShowUserName==null)
-        {
+        if(ShowUserName==null) {
             Toast.makeText(DrawerActivity.this, "空指针错误!", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
+        } else {
             ShowUserName.setText(LoginActivity.LoginUser.getUserName());
         }
     }

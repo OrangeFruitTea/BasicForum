@@ -25,7 +25,10 @@ public class NewPostActivity extends AppCompatActivity {
     private EditText PostInputTitle;
     private EditText PostInputSubTitle;
     private EditText PostInputContent;
-    boolean sendingPost;
+    //判断处理现在属于发布Post还是发布Comment，true为Post
+    public boolean sendingPost;
+    //如果正在发布Comment，储存该Comment对应的PostId
+    private int currentPostId;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class NewPostActivity extends AppCompatActivity {
             header.setTitle("New Post");
         } else {
             header.setTitle("New Comment");
+            currentPostId = selfIntent.getIntExtra("currentPostId", 1);
         }
 
 
