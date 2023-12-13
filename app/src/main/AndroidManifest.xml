@@ -28,13 +28,13 @@
         </activity>
 
         <!--debug切换布局用界面-->
-        <activity android:name=".ui.debugActivity"
-            android:exported="true">
+<!--        <activity android:name=".ui.debugActivity"-->
+<!--            android:exported="true">-->
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN"/>-->
 <!--                <category android:name="android.intent.category.LAUNCHER"/>-->
 <!--            </intent-filter>-->
-        </activity>
+<!--        </activity>-->
 
         <!--登陆界面-->
         <activity android:name=".ui.LoginActivity"

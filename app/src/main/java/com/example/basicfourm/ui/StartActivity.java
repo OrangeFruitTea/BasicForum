@@ -28,7 +28,7 @@ public class StartActivity extends AppCompatActivity {
 
     //从开屏动画前往主界面
     private void gotoMain() {
-        Intent intent = new Intent(StartActivity.this, debugActivity.class);
+        Intent intent = new Intent(StartActivity.this, DrawerActivity.class);
         startActivity(intent);
         finish();
     }

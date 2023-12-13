@@ -142,7 +142,12 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_newpost_send) {
-            openActivityNewPost();
+            if (LoginActivity.LoginUser.getId() == 0) {
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+            } else {
+                openActivityNewPost();
+            }
         }
         return true;
     }
