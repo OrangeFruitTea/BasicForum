@@ -41,7 +41,11 @@ public class ReplyAdapter extends RecyclerView.Adapter {
             } else {
                 replyViewHolder.CommentTitle.setText(reply.getTitle());
             }
-            replyViewHolder.CommentSubTitle.setVisibility(View.GONE);
+            if (reply.getSubTitle() == null || reply.getSubTitle().equals("")) {
+                replyViewHolder.CommentSubTitle.setVisibility(View.GONE);
+            } else {
+                replyViewHolder.CommentSubTitle.setText(reply.getSubTitle());
+            }
             replyViewHolder.CommentTime.setText(reply.getTimeInReply());
             replyViewHolder.CommentAuthor.setText(reply.getReplyer().getUserName());
             replyViewHolder.CommentInfo.setText(reply.getReply());

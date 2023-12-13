@@ -101,7 +101,7 @@ public class NewPostActivity extends AppCompatActivity {
                 Date date = new Date(System.currentTimeMillis());
                 if (sendingPost) {
                     PostList thePost = new PostList(title,subtitle,content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),LoginActivity.thePostManager.getObjectId());
-                    ReplyList comment = new ReplyList(content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),thePost.getFloorForComment(),title,thePost);
+                    ReplyList comment = new ReplyList(content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),thePost.getFloorForComment(),title, subtitle, thePost);
                     thePost.getCommentList().add(comment);
                     comment.save();
                     boolean flag = thePost.save();
@@ -117,7 +117,7 @@ public class NewPostActivity extends AppCompatActivity {
                     } catch (ClassNotFoundException e) {
                         throw new RuntimeException(e);
                     }
-                    ReplyList comment = new ReplyList(content, LoginActivity.LoginUser, simpleDateFormat.format(date).toString(), parentPost.getFloorForComment(), title, parentPost);
+                    ReplyList comment = new ReplyList(content, LoginActivity.LoginUser, simpleDateFormat.format(date).toString(), parentPost.getFloorForComment(), title, subtitle, parentPost);
                     parentPost.getCommentList().add(comment);
                     comment.save();
                     boolean flag = parentPost.save();

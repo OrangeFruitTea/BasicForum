@@ -41,12 +41,12 @@ public class PostAdapter extends RecyclerView.Adapter {
 //        postArray = LitePal.findAll(PostList.class);
         if (holder instanceof PostViewHolder) {
             PostViewHolder postViewHolder = (PostViewHolder) holder;
-            if (post.getTitle() == "") {
+            if (post.getTitle().equals("")) {
                 postViewHolder.PostTitle.setVisibility(View.GONE);
             } else {
                 postViewHolder.PostTitle.setText(post.getTitle());
             }
-            if (post.getSubTitle() == "") {
+            if (post.getSubTitle() == null || post.getSubTitle().equals("")) {
                 postViewHolder.PostSubTitle.setVisibility(View.GONE);
             } else {
                 postViewHolder.PostSubTitle.setText(post.getSubTitle());
