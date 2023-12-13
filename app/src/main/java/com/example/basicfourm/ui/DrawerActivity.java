@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,6 +37,9 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private RecyclerView layoutAllPost;
+//    private LinearLayout layerHistory;
+//    private LinearLayout layerPastComments;
+//    private LinearLayout layerFavorites;
     private PostAdapter adapter;
     private List<PostList> allPost;
     private Toolbar toolbar;
@@ -53,6 +57,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
         drawerLayout = findViewById(R.id.layout_drawer);
         toolbar = (Toolbar) findViewById(R.id.header_module);
+
 
         //设置刷新操作和回调函数
         setSupportActionBar(toolbar);
@@ -97,6 +102,35 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         } else {
             ShowUserName.setText(LoginActivity.LoginUser.getUserName());
         }
+
+//        //设置侧边栏用户信息点击监听事件
+//        layerHistory = findViewById(R.id.layer_history);
+//        layerPastComments = findViewById(R.id.layer_past_comments);
+//        layerFavorites = findViewById(R.id.layer_favorites);
+//        layerHistory.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(view.getContext(), UserActionActivity.class);
+//                intent.putExtra("selectType", 1);
+//                view.getContext().startActivity(intent);
+//            }
+//        });
+//        layerPastComments.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(view.getContext(), UserActionActivity.class);
+//                intent.putExtra("selectType", 2);
+//                view.getContext().startActivity(intent);
+//            }
+//        });
+//        layerFavorites.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(view.getContext(), UserActionActivity.class);
+//                intent.putExtra("selectType", 3);
+//                view.getContext().startActivity(intent);
+//            }
+//        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

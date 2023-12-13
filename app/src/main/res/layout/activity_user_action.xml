@@ -10,7 +10,7 @@
 
         <include
             android:id="@+id/layout_user_action_toolbar"
-            layout="@layout/layout_post_header" />
+            layout="@layout/layout_user_action_header" />
 
         <!--        <FrameLayout-->
         <!--            android:id="@+id/flContent"-->
@@ -18,12 +18,12 @@
         <!--            android:layout_height="match_parent"-->
         <!--            app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/layout_comment_refresh"
+            android:id="@+id/layout_user_action_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/view_all_comment"
+                android:id="@+id/view_all"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

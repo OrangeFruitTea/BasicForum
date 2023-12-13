@@ -63,6 +63,15 @@ public class NewPostActivity extends AppCompatActivity {
                     Toast.makeText(NewPostActivity.this,"提供的ID不合法", Toast.LENGTH_SHORT).show();
                 }
                 //实现返回功能
+                finish();
+/*                Intent intent = null;
+                if (sendingPost) {
+                    intent = new Intent(NewPostActivity.this, DrawerActivity.class);
+                } else {
+                    intent = new Intent(NewPostActivity.this, PostDetailActivity.class);
+                }
+                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);*/
                 //PostList thePost = LoginActivity.thePostManager.getPostById(2);
                 //Toast.makeText(NewPostActivity.this,thePost.getTitle(), Toast.LENGTH_SHORT).show();
                 //Toast.makeText(NewPostActivity.this,LitePal.where("postlist_id=?",String.valueOf(10)).findFirst(ReplyList.class).getTitle(), Toast.LENGTH_SHORT).show();
@@ -90,18 +99,34 @@ public class NewPostActivity extends AppCompatActivity {
                 String subtitle = PostInputSubTitle.getText().toString().trim();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
                 Date date = new Date(System.currentTimeMillis());
-
-                PostList thePost = new PostList(title,subtitle,content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),LoginActivity.thePostManager.getObjectId());
-                ReplyList comment = new ReplyList(content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),thePost.getFloorForComment(),title,thePost);
-                thePost.getCommentList().add(comment);
-                comment.save();
-                boolean flag = thePost.save();
-                if(!flag)
-                {
-                    Toast.makeText(NewPostActivity.this, "发帖失败", Toast.LENGTH_SHORT).show();
+                if (sendingPost) {
+                    PostList thePost = new PostList(title,subtitle,content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),LoginActivity.thePostManager.getObjectId());
+                    ReplyList comment = new ReplyList(content,LoginActivity.LoginUser,simpleDateFormat.format(date).toString(),thePost.getFloorForComment(),title,thePost);
+                    thePost.getCommentList().add(comment);
+                    comment.save();
+                    boolean flag = thePost.save();
+                    if(!flag) {
+                        Toast.makeText(NewPostActivity.this, "发帖失败", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(NewPostActivity.this,"发帖成功", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    PostList parentPost = null;
+                    try {
+                        parentPost = LoginActivity.thePostManager.getPostById(currentPostId);
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                    ReplyList comment = new ReplyList(content, LoginActivity.LoginUser, simpleDateFormat.format(date).toString(), parentPost.getFloorForComment(), title, parentPost);
+                    parentPost.getCommentList().add(comment);
+                    comment.save();
+                    boolean flag = parentPost.save();
+                    if (!flag) {
+                        Toast.makeText(NewPostActivity.this, "评论失败", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(NewPostActivity.this,"评论成功", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
-                Toast.makeText(NewPostActivity.this,"发帖成功", Toast.LENGTH_SHORT).show();
-                finish();
             }
             LoginActivity.thePostManager.save();
         }
@@ -111,10 +136,11 @@ public class NewPostActivity extends AppCompatActivity {
 
 
     public boolean isPostValid() {
-        String title = PostInputTitle.getText().toString().trim();
-        if(title.equals(""))
+//        String title = PostInputTitle.getText().toString().trim();
+        String content = PostInputContent.getText().toString().trim();
+        if(content.equals(""))
         {
-            Toast.makeText(NewPostActivity.this, "帖子标题不能为空", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NewPostActivity.this, "正文内容不能为空", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;

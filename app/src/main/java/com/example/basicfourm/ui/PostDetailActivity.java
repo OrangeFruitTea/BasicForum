@@ -51,6 +51,13 @@ public class PostDetailActivity extends AppCompatActivity  {
 
         toolbar = (Toolbar) findViewById(R.id.header_post_detail);
         setSupportActionBar(toolbar);
+        //设置返回按钮监听
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         //点击跳转时将对应帖子信息赋值到此布局
         Intent intent = getIntent();

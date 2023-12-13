@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,8 +36,12 @@ public class ReplyAdapter extends RecyclerView.Adapter {
         ReplyList reply = replyArray.get(position);
         if (holder instanceof ReplyViewHolder) {
             ReplyViewHolder replyViewHolder = (ReplyAdapter.ReplyViewHolder) holder;
-            replyViewHolder.CommentTitle.setText(reply.getTitle());
-            replyViewHolder.CommentSubTitle.setText(reply.getTitle());
+            if (reply.getTitle().equals("")) {
+                replyViewHolder.CommentTitle.setVisibility(View.GONE);
+            } else {
+                replyViewHolder.CommentTitle.setText(reply.getTitle());
+            }
+            replyViewHolder.CommentSubTitle.setVisibility(View.GONE);
             replyViewHolder.CommentTime.setText(reply.getTimeInReply());
             replyViewHolder.CommentAuthor.setText(reply.getReplyer().getUserName());
             replyViewHolder.CommentInfo.setText(reply.getReply());

@@ -40,18 +40,21 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layer_drawer_user_action"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/layer_history"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical"
+            android:background="?attr/selectableItemBackground"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             tools:ignore="NestedWeights">
@@ -64,6 +67,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layer_past_comments"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -79,6 +83,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layer_favorites"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

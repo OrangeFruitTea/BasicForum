@@ -41,8 +41,16 @@ public class PostAdapter extends RecyclerView.Adapter {
 //        postArray = LitePal.findAll(PostList.class);
         if (holder instanceof PostViewHolder) {
             PostViewHolder postViewHolder = (PostViewHolder) holder;
-            postViewHolder.PostTitle.setText(post.getTitle());
-            postViewHolder.PostSubTitle.setText(post.getSubTitle());
+            if (post.getTitle() == "") {
+                postViewHolder.PostTitle.setVisibility(View.GONE);
+            } else {
+                postViewHolder.PostTitle.setText(post.getTitle());
+            }
+            if (post.getSubTitle() == "") {
+                postViewHolder.PostSubTitle.setVisibility(View.GONE);
+            } else {
+                postViewHolder.PostSubTitle.setText(post.getSubTitle());
+            }
             postViewHolder.PostTime.setText(post.getTime());
             postViewHolder.PostAuthor.setText(post.getPublisher().getUserName());
             postViewHolder.PostInfo.setText(post.getContent());
@@ -53,7 +61,6 @@ public class PostAdapter extends RecyclerView.Adapter {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Clicked", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(view.getContext(), PostDetailActivity.class);
                 intent.putExtra("postId", post.getObjectID());
                 view.getContext().startActivity(intent);
